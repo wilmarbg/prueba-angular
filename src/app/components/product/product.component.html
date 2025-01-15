@@ -1,0 +1,42 @@
+<div class="container">
+  <h1>Gestión de Productos</h1>
+
+  <button (click)="createProduct()" class="btn btn-primary" style="margin-right: 10px;">Crear Producto</button>
+
+  <input [(ngModel)]="productName" type="text" class="form-control" style="margin-right: 10px;">
+
+  <button (click)="captureInput()" class="btn btn-secondary" style="margin-right: 10px;">Búscar Producto</button>
+
+  <button (click)="obtenerTodos()" class="btn btn-secondary">Todos</button>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Código</th>
+        <th>Nombre</th>
+        <th>Estado</th>
+        <th>Existencia</th>
+        <th>Descripción</th>
+        <th>Precio</th>
+        <th>Descuento</th>
+        <th>Precio Final</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{ product.productId }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.statusName }}</td>
+        <td>{{ product.stock }}</td>
+        <td>{{ product.description }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.discount }}</td>
+        <td>{{ product.finalPrice }}</td>
+        <td>
+          <button (click)="updateProduct(product)" class="btn btn-warning">Actualizar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
